@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Box, Text } from "@chakra-ui/react";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
+import Identicon from "./Identicon";
 
 export default function ConnectButton() {
   const {activateBrowserWallet, account } = useEthers();
@@ -39,13 +40,13 @@ export default function ConnectButton() {
         height="38px"
       >
         <Text color="white" fontSize="md" fontWeight="medium" mr="2">
-          {/* check account is defined and then slice the string */}
           {account &&
             `${account.slice(0, 6)}...${account.slice(
               account.length - 4,
               account.length
             )}`}
         </Text>
+        <Identicon />
       </Button>
     </Box>
   ) : (
