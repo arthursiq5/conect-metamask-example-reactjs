@@ -6,13 +6,19 @@ export default function ConnectButton() {
   const {activateBrowserWallet, account } = useEthers();
   const etherBalance = useEtherBalance(account);
 
+  function handleConnectWallet() {
+    activateBrowserWallet();
+  }
+
   return account ? (
     <Box>
       <Text color="white" fontSize="md">
-        {etherBalance && etherBalance} ETH
+        {etherBalance && JSON.stringify(etherBalance)} ETH
       </Text>
     </Box>
   ) : (
-    <Button>Connect to a wallet</Button>
+    <Button onClick={handleConnectWallet}>
+      Connect to a wallet
+    </Button>
   );
 }
