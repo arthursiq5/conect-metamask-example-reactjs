@@ -1,10 +1,15 @@
 import React from 'react';
 import { ChakraProvider } from "@chakra-ui/react";
+import Layout from './components/Layout';
 
 export default function App() {
   return (
     <ChakraProvider>
-      content
+      <Layout>
+        <p style={{color: "white"}}>
+          Hello, World
+        </p>
+      </Layout>
     </ChakraProvider>
   )
 }
