@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Box, Text } from "@chakra-ui/react";
 import { useEthers, useEtherBalance } from "@usedapp/core";
+import { formatEther } from "@ethersproject/units";
 
 export default function ConnectButton() {
   const {activateBrowserWallet, account } = useEthers();
@@ -13,7 +14,7 @@ export default function ConnectButton() {
   return account ? (
     <Box>
       <Text color="white" fontSize="md">
-        {etherBalance && JSON.stringify(etherBalance)} ETH
+        { etherBalance && parseFloat(formatEther(etherBalance)).toFixed(3) } ETH
       </Text>
     </Box>
   ) : (
